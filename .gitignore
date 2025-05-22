@@ -1,3 +1,5 @@
+database/
+logs/
 config/config.json
 .php-cs-fixer.cache
 
