@@ -15,5 +15,9 @@
     "debug_mode": true,
     "site_name": "My Awesome Website"
   },
+  "footer": {
+    "discord_url": "https://discord.gg/XXXXXX",
+    "copyright_name": "YOUR_NAME",
+    "copyright_start_year": 2025
   }
 }
