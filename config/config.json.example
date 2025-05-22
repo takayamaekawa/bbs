@@ -1,0 +1,16 @@
+{
+  "database": {
+    "host": "localhost",
+    "name": "my_database",
+    "user": "db_user",
+    "password": "db_password"
+  },
+  "api_keys": {
+    "service_a": "your_api_key_for_service_a",
+    "service_b": "another_api_key"
+  },
+  "app_settings": {
+    "debug_mode": true,
+    "site_name": "My Awesome Website"
+  }
+}
