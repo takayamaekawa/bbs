@@ -12,7 +12,7 @@ $finder = (new Finder())
 
 return (new Config())
   ->setRules([
-    /* '@PSR12' => true, // PSR-12 標準に準拠 */
+    '@PSR12' => true, // PSR-12 標準に準拠
 
     // インデント関連のルール (editorconfig と合わせてスペース2つ)
     'indentation_type' => true, // スペースインデントを使用
