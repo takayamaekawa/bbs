@@ -2,7 +2,8 @@
 
 namespace Root\Composer\Core\Config;
 
-class Settings {
+class Settings
+{
   private static ?self $instance = null;
 
   private array $config = [];
@@ -16,7 +17,8 @@ class Settings {
    * @param string $configFilePath JSON設定ファイルの絶対パス
    * @throws \RuntimeException 設定ファイルの読み込みやパースに失敗した場合
    */
-  private function __construct(string $configFilePath) {
+  private function __construct(string $configFilePath)
+  {
     $this->configFilePath = $configFilePath;
     $this->load();
   }
@@ -30,7 +32,8 @@ class Settings {
    * @throws \InvalidArgumentException 初回初期化時にconfigFilePathが指定されない場合
    * @throws \RuntimeException 設定ファイルの読み込みやパースに失敗した場合
    */
-  public static function getInstance(?string $configFilePath = null): self {
+  public static function getInstance(?string $configFilePath = null): self
+  {
     if (self::$instance === null) {
       if ($configFilePath === null) {
         // 実際には、デフォルトパスを設定するか、より厳密なエラー処理を行う
@@ -48,7 +51,8 @@ class Settings {
    *
    * @throws \RuntimeException 設定ファイルの読み込みやパースに失敗した場合
    */
-  private function load(): void {
+  private function load(): void
+  {
     if (!file_exists($this->configFilePath)) {
       throw new \RuntimeException("設定ファイルが見つかりません: {$this->configFilePath}");
     }
@@ -74,7 +78,8 @@ class Settings {
    * @param mixed|null $default キーが存在しない場合に返すデフォルト値
    * @return mixed 設定値、またはデフォルト値
    */
-  public function get(string $key, $default = null) {
+  public function get(string $key, $default = null)
+  {
     if (empty($key)) {
       return $default;
     }
@@ -103,7 +108,8 @@ class Settings {
    *
    * @return array
    */
-  public function getAll(): array {
+  public function getAll(): array
+  {
     return $this->config;
   }
 
@@ -112,7 +118,8 @@ class Settings {
    * 通常の運用では不要かもしれません。
    * @throws \RuntimeException
    */
-  public function reload(): void {
+  public function reload(): void
+  {
     $this->load();
   }
 }
