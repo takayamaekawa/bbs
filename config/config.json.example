@@ -1,9 +1,11 @@
 {
   "database": {
-    "host": "localhost",
-    "name": "my_database",
-    "user": "db_user",
-    "password": "db_password"
+    "type": "sqlite", // "mysql" または "sqlite": sqliteの場合は、php-sqliteモジュールが必要です。
+    "host": "localhost", // MySQLの場合に利用
+    "name": "my_database", // MySQLの場合に利用
+    "user": "db_user", // MySQLの場合に利用
+    "password": "db_password", // MySQLの場合に利用
+    "path": "database/app.sqlite" // SQLiteの場合のDBファイルパス (プロジェクトルートからの相対パス)
   },
   "api_keys": {
     "service_a": "your_api_key_for_service_a",
@@ -12,5 +14,6 @@
   "app_settings": {
     "debug_mode": true,
     "site_name": "My Awesome Website"
+  },
   }
 }
