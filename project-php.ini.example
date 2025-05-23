@@ -1,0 +1,14 @@
+; project-php.ini.example
+
+; Specify the directory where PHP extension DLL files are located.
+; Please adjust this path according to your PHP installation path.
+extension_dir = "/path/to/your/php/ext"
+
+; Enable required extensions
+extension=pdo_sqlite
+extension=pdo_mysql
+
+; You can add other settings here if needed.
+; Examples:
+; date.timezone = "Asia/Tokyo"
+; memory_limit = 256M

@@ -2,6 +2,7 @@ database/
 logs/
 config/config.json
 .php-cs-fixer.cache
+project-php.ini
 
 # quoted from https://gist.github.com/Yousha/a5514afd6cda8afba800f5af9f7115b4
 
