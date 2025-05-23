@@ -29,8 +29,10 @@ class Authentication
 
   private function processLoginState(): void
   {
-    if (isset($_SESSION['user_id'], $_SESSION['last_activity']) &&
-        ($_SESSION['last_activity'] + $this->sessionLifetime > time())) {
+    if (
+      isset($_SESSION['user_id'], $_SESSION['last_activity']) &&
+      ($_SESSION['last_activity'] + $this->sessionLifetime > time())
+    ) {
       // セッションが有効期間内
       $_SESSION['last_activity'] = time(); // アクティビティ時間を更新
 

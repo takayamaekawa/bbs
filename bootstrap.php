@@ -118,10 +118,11 @@ if ($db instanceof \PDO) { // $db が有効なPDOインスタンスであるこ�
     bootstrap_log("Table 'members' already exists.");
   } catch (\PDOException $e) { // PDOException を明示的にキャッチ
     $errorMessageLower = strtolower($e->getMessage());
-    if (strpos($errorMessageLower, 'no such table') !== false ||
-        strpos($errorMessageLower, 'table or view not found') !== false ||
-        strpos($errorMessageLower, "doesn't exist") !== false ||
-        (strpos($errorMessageLower, 'undefined table') !== false && strpos($errorMessageLower, 'members') !== false)
+    if (
+      strpos($errorMessageLower, 'no such table') !== false ||
+      strpos($errorMessageLower, 'table or view not found') !== false ||
+      strpos($errorMessageLower, "doesn't exist") !== false ||
+      (strpos($errorMessageLower, 'undefined table') !== false && strpos($errorMessageLower, 'members') !== false)
     ) {
       bootstrap_log("Table 'members' not found. Attempting to create it...");
       try {

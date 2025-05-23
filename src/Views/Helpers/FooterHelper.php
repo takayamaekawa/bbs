@@ -23,19 +23,19 @@ class FooterHelper
       : $copyrightStartYear . '-' . $currentYear;
 
     ob_start();
-    ?>
-  <footer>
-    <div style="line-height: 10px!important; text-align: center; padding: 20px 0;">
-      <?php if (!empty($discordUrl)) : ?>
-      <a href="<?php echo htmlspecialchars($discordUrl); ?>" target="_blank" rel="noopener noreferrer">
-        <img src="/assets/svg/discord_blue.svg" width="100" height="25" alt="Discord">
-      </a>
-      <br><br> 
-      <?php endif; ?>
-      <p style="margin: 0; font-size: 0.9em;">Copyright &copy; <?php echo $copyrightYearString; ?> <?php echo htmlspecialchars($copyrightName); ?></p>
-    </div>
-  </footer>
-    <?php
+?>
+    <footer>
+      <div style="line-height: 10px!important; text-align: center; padding: 20px 0;">
+        <?php if (!empty($discordUrl)) : ?>
+          <a href="<?php echo htmlspecialchars($discordUrl); ?>" target="_blank" rel="noopener noreferrer">
+            <img src="/assets/svg/discord_blue.svg" width="100" height="25" alt="Discord">
+          </a>
+          <br><br>
+        <?php endif; ?>
+        <p style="margin: 0; font-size: 0.9em;">Copyright &copy; <?php echo $copyrightYearString; ?> <?php echo htmlspecialchars($copyrightName); ?></p>
+      </div>
+    </footer>
+<?php
     return ob_get_clean();
   }
 }
