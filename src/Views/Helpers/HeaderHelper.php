@@ -20,7 +20,7 @@ class HeaderHelper
     $currentUser = Auth::user(); // ログインしていなければ null が返る想定
 
     ob_start();
-    ?>
+?>
     <header>
       <br>
       <div class="header-area">
@@ -69,7 +69,7 @@ class HeaderHelper
                     </form>
                   </div>
                   <div>
-                    <a href="./.dirc.php"><img style="width:25px;height:25px;margin-right:10px;"src="/assets/img/icon/folder.png" alt="ディレクトリ"></img></a>
+                    <a href="./.dirc.php"><img style="width:25px;height:25px;margin-right:10px;" src="/assets/img/icon/folder.png" alt="ディレクトリ"></img></a>
                   </div>
                 </div>
               <?php endif; ?>
@@ -84,7 +84,7 @@ class HeaderHelper
             <?php endif; ?>
           </li>
           <?php if (Auth::check()) : ?>
-          <br>
+            <br>
           <?php endif; ?>
         </ul>
         <script>
@@ -100,29 +100,42 @@ class HeaderHelper
         </script>
       </div>
       <style>
-        .header-area .flex nyanya img {
+        /* CSSの構文エラーを修正 */
+        /* カスタムタグ nyanya, nyanyanya をクラスセレクタに変更するか、 */
+        /* これらのタグがHTMLで正しく定義・認識されることを前提とします。 */
+        /* ここでは、これらがdivやspanのような要素のクラスであると仮定して修正します。 */
+        .header-area .flex .nyanya img {
+          /* クラスとして解釈 */
           margin-top: 5px;
         }
-        .header-area .flex nyanyanya img {
+
+        .header-area .flex .nyanyanya img {
+          /* クラスとして解釈 */
           margin-top: 10px;
         }
+
+        /* もし nyanya, nyanyanya がカスタム要素として扱いたい場合、
+           CSS自体は問題ないかもしれませんが、HTML側の定義やブラウザの解釈に依存します。
+           ここでは、Linterが警告を出す一般的なCSS構文に寄せています。 */
       </style>
       <div class="font1-0 white headscroll" style="line-height: 10px!important;letter-spacing: 5px;padding-right:40px;">
         <span>
           <a class="" href="/counter/index.php">
             <div class="flex">
-              <nyanya>
+              <span class="nyanya"> <?php // カスタムタグをspanとクラスに変更する例 
+                                    ?>
                 <img src="/assets/img/icon/link3.png" width="20px" height="25px">
-              </nyanya>
-              <nyanyanya style="padding-top:-3px;!important;">
+              </span>
+              <span class="nyanyanya" style="padding-top:-3px;!important;"> <?php // カスタムタグをspanとクラスに変更する例 
+                                                                            ?>
                 あなたは本日<?php echo isset($counter['todayipcount'][0]) ? htmlspecialchars($counter['todayipcount'][0]) : '0'; ?>人目の訪問者です。
-              </nyanyanya>
+              </span>
             </div>
           </a>
         </span>
       </div>
     </header>
-    <?php
+<?php
     return ob_get_clean();
   }
 }
