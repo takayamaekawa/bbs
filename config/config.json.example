@@ -1,11 +1,11 @@
 {
   "database": {
-    "type": "sqlite", // "mysql" または "sqlite": sqliteの場合は、php-sqliteモジュールが必要です。
-    "host": "localhost", // MySQLの場合に利用
-    "name": "my_database", // MySQLの場合に利用
-    "user": "db_user", // MySQLの場合に利用
-    "password": "db_password", // MySQLの場合に利用
-    "path": "database/app.sqlite" // SQLiteの場合のDBファイルパス (プロジェクトルートからの相対パス)
+    "type": "sqlite", // "mysql" or "sqlite": If "sqlite", the php-sqlite module is required.
+    "host": "localhost", // Used for MySQL
+    "name": "my_database", // Used for MySQL
+    "user": "db_user", // Used for MySQL
+    "password": "db_password", // Used for MySQL
+    "path": "database/app.sqlite" // DB file path for SQLite (relative to the project root)
   },
   "api_keys": {
     "service_a": "your_api_key_for_service_a",
