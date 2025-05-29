@@ -3,6 +3,7 @@
 namespace Root\Composer\Views\Helpers;
 
 use Root\Composer\Core\Auth\Auth;
+use Root\Composer\Core\Config\Settings;
 
 class HeaderHelper
 {
@@ -13,10 +14,17 @@ class HeaderHelper
    * @param string $siteName 表示するサイト名
    * @return string 生成されたヘッダーHTML
    */
-  public static function render(string $siteName = '絶・掲示板'): string
+  public static function render(string $siteName = null): string
   {
     $isLoggedIn = Auth::check();
     $currentUser = $isLoggedIn ? Auth::user() : null;
+    
+    // config.jsonからサイト名とパスを取得
+    $settings = Settings::getInstance();
+    if ($siteName === null) {
+      $siteName = $settings->get('app_settings.site_name', '絶・掲示板');
+    }
+    $userIconsPath = '/' . ltrim($settings->get('paths.user_icons_directory', 'public/assets/img/upload/icon/user/'), '/');
 
     ob_start();
 ?>
@@ -27,7 +35,7 @@ class HeaderHelper
         <div class="absolute_right">
           <div class="trim_header profile_icon profile" style="z-index: 5;">
             <?php if ($isLoggedIn && isset($currentUser['icon'])): ?>
-              <img src="/assets/img/upload/icon/user/<?= htmlspecialchars($currentUser['icon'], ENT_QUOTES) ?>" alt="プロフィールアイコン">
+              <img src="<?= htmlspecialchars($userIconsPath . $currentUser['icon'], ENT_QUOTES) ?>" alt="プロフィールアイコン">
             <?php else: ?>
               <img src="/assets/img/default_icon.png" alt="デフォルトアイコン">
             <?php endif; ?>

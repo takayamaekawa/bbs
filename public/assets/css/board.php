@@ -1,9 +1,14 @@
 <?php
-require('/opt/admin2/php/path.php');
-require($dbconnect);
+require_once __DIR__ . '/../../bootstrap.php';
+
+use Root\Composer\Core\Database\Connection;
+
 header('Content-Type: text/css; charset=utf-8');
 
-$posts = $db->query('SELECT m.name, p.* FROM members m JOIN posts p ON m.id=p.created_by ORDER BY p.created DESC');
+$pdo = Connection::getConnection();
+if ($pdo) {
+    $posts = $pdo->query('SELECT name, posts.* FROM users JOIN posts ON users.id=posts.created_by ORDER BY posts.created_at DESC');
+}
 
 // word-wrap: break-all;
 ?>

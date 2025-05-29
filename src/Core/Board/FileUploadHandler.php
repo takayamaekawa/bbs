@@ -13,7 +13,10 @@ class FileUploadHandler
   public function __construct(string $uploadDir = null, int $maxFileSize = 1000000000)
   {
     if ($uploadDir === null) {
-      $uploadDir = PROJECT_ROOT . '/public/assets/img/upload/';
+      // config.jsonからアップロードディレクトリを取得
+      $settings = \Root\Composer\Core\Config\Settings::getInstance();
+      $uploadPath = $settings->get('paths.upload_directory', 'public/assets/img/upload/');
+      $uploadDir = PROJECT_ROOT . '/' . ltrim($uploadPath, '/');
     }
     $this->uploadDir = rtrim($uploadDir, '/') . '/';
     $this->maxFileSize = $maxFileSize;

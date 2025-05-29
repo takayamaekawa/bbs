@@ -19,5 +19,10 @@
     "discord_url": "https://discord.gg/XXXXXX",
     "copyright_name": "YOUR_NAME",
     "copyright_start_year": 2025
+  },
+  "paths": {
+    "upload_directory": "public/assets/img/upload/",
+    "user_icons_directory": "public/assets/img/upload/icon/user/",
+    "temp_directory": "tmp/"
   }
 }

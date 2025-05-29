@@ -173,8 +173,8 @@ class TimeCalculator
 /*
 // --- 使用例 ---
 
-// 最初にPDOインスタンスを準備します (例: path.php で $db が設定される)
-// require_once '/opt/admin2/php/path.php'; // $db のセットアップなど
+// 最初にPDOインスタンスを準備します (bootstrap.php でConnection::initialize()が呼ばれている)
+// PDO接続はConnection::getConnection()で取得できます
 
 // ダミーのPDO接続 (実際には path.php などで設定されたものを使用)
 try {
