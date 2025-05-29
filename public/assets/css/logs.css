@@ -1,0 +1,218 @@
+html,
+body {
+  font-family: none !important;
+  letter-spacing: 1px !important;
+  line-height: 45px !important;
+}
+
+.joined {
+  border-left: 5px solid #01df01;
+}
+
+.joined i {
+  color: #01df01;
+}
+
+.first {
+  border-left: 5px solid #ffc300;
+}
+
+.first i {
+  color: #ffc300;
+}
+
+.left {
+  border-left: 5px solid #fa5858;
+}
+
+.left i {
+  color: #fa5858;
+}
+
+.warning {
+  border-left: 5px solid #ffbf00;
+  color: #ffbf00;
+}
+
+.warning i {
+  color: #ffbf00;
+}
+
+.start {
+  border-left: 5px solid #01df01;
+}
+
+.stop {
+  border-left: 5px solid #fa5858;
+}
+
+.reboot {
+  border-left: 5px solid #ffc300;
+}
+
+.moved {
+  border-left: 5px solid #00ffff;
+}
+
+.req {
+  border-left: 5px solid #00ff7f;
+}
+
+.req_ok {
+  border-left: 5px solid #01df01;
+}
+
+.req_cancel {
+  border-left: 5px solid #fa5858;
+}
+
+.req_nores {
+  border-left: 5px solid #0000ff;
+}
+
+.start-g {
+  width: 24px;
+  margin-bottom: -3px;
+  margin-right: -5px;
+  fill: #aaa;
+}
+
+.stop-g {
+  width: 24px;
+  margin-bottom: -3px;
+  margin-right: -5px;
+  fill: #aaa;
+}
+
+.reboot-g {
+  width: 24px;
+  margin-bottom: -3px;
+  margin-right: -5px;
+  fill: #aaa;
+}
+
+.move-g {
+  width: 24px;
+  margin-bottom: -3px;
+  fill: #aaa;
+}
+
+.req-g {
+  width: 24px;
+  margin-bottom: -3px;
+  margin-right: -5px;
+  fill: #aaa;
+}
+
+.req_cancel-g {
+  width: 24px;
+  margin-bottom: -3px;
+  margin-right: -5px;
+  fill: #aaa;
+}
+
+.req_ok-g {
+  width: 24px;
+  margin-bottom: -3px;
+  margin-right: -5px;
+  fill: #aaa;
+}
+
+.req_nores-g {
+  width: 24px;
+  margin-bottom: -3px;
+  margin-right: -5px;
+  fill: #0000ff;
+}
+
+@media screen and (max-width: 520px) {
+  .ps-br {
+    display: none;
+    /* PCの改行を隠して */
+  }
+
+  .sp-br {
+    display: block;
+    /* SPを改行する */
+  }
+
+  .icons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    /*要素逆順*/
+    /*flex-direction: column-reverse;*/
+  }
+
+  .icons > div {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .icons > div > svg {
+    width: 30px !important;
+    height: 30px !important;
+  }
+}
+
+@media screen and (min-width: 520px) and (max-width: 950px) {
+  .ps-br {
+    display: block;
+    /* PCを改行して */
+  }
+
+  .sp-br {
+    display: none;
+    /* SPの改行を隠す */
+  }
+
+  .icons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    /*要素逆順*/
+    /*flex-direction: column-reverse;*/
+  }
+
+  .icons > div {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .icons > div > svg {
+    width: 30px !important;
+    height: 30px !important;
+  }
+}
+
+@media screen and (min-width: 950px) {
+  .ps-br {
+    display: block;
+    /* PCを改行して */
+  }
+
+  .sp-br {
+    display: none;
+    /* SPの改行を隠す */
+  }
+
+  .icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .icons > div {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .icons > div > svg {
+    width: 30px !important;
+    height: 30px !important;
+  }
+}

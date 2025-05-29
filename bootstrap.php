@@ -43,6 +43,11 @@ if (file_exists(PROJECT_ROOT . '/vendor/autoload.php')) {
     '/src/Core/Database/Connection.php',
     '/src/Core/Auth/Authentication.php',
     '/src/Core/Auth/Auth.php',
+    '/src/Core/Auth/User.php',
+    '/src/Core/Auth/ProfileController.php',
+    '/src/Core/Board/Post.php',
+    '/src/Core/Board/FileUploadHandler.php',
+    '/src/Core/Board/BoardController.php',
     '/src/Views/Helpers/HeaderHelper.php', // 必要に応じて追加
   ];
   foreach ($manualLoadFiles as $file) {
@@ -162,6 +167,81 @@ if ($db instanceof \PDO) { // $db が有効なPDOインスタンスであるこ�
       }
     } else {
       $errorMessage = "Database error while checking 'members' table: " . $e->getMessage();
+      bootstrap_log($errorMessage);
+      error_log($errorMessage, 0);
+    }
+  }
+
+  // --- 7.1. posts テーブルの作成 ---
+  try {
+    $db->query('SELECT 1 FROM posts LIMIT 1');
+    bootstrap_log("Table 'posts' already exists.");
+  } catch (\PDOException $e) {
+    $errorMessageLower = strtolower($e->getMessage());
+    if (
+      strpos($errorMessageLower, 'no such table') !== false ||
+      strpos($errorMessageLower, 'table or view not found') !== false ||
+      strpos($errorMessageLower, "doesn't exist") !== false ||
+      (strpos($errorMessageLower, 'undefined table') !== false && strpos($errorMessageLower, 'posts') !== false)
+    ) {
+      bootstrap_log("Table 'posts' not found. Attempting to create it...");
+      try {
+        $dbType = strtolower($settings->get('database.type', 'mysql'));
+        
+        if ($dbType === 'sqlite') {
+          $sql = 'CREATE TABLE posts (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    name VARCHAR(255) NOT NULL,
+                    created_by INTEGER NOT NULL,
+                    post TEXT,
+                    fname VARCHAR(255),
+                    extension VARCHAR(10),
+                    ratio VARCHAR(50),
+                    reply_to VARCHAR(255),
+                    reply_post TEXT,
+                    reply_id INTEGER,
+                    reply_created TIMESTAMP,
+                    reply_from_id INTEGER,
+                    edit VARCHAR(10) DEFAULT NULL,
+                    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    FOREIGN KEY (created_by) REFERENCES members(id)
+                  )';
+        } elseif ($dbType === 'mysql') {
+          $sql = 'CREATE TABLE posts (
+                    id INT PRIMARY KEY AUTO_INCREMENT,
+                    name VARCHAR(255) NOT NULL,
+                    created_by INT NOT NULL,
+                    post TEXT,
+                    fname VARCHAR(255),
+                    extension VARCHAR(10),
+                    ratio VARCHAR(50),
+                    reply_to VARCHAR(255),
+                    reply_post TEXT,
+                    reply_id INT,
+                    reply_created TIMESTAMP NULL,
+                    reply_from_id INT,
+                    edit VARCHAR(10) DEFAULT NULL,
+                    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                    FOREIGN KEY (created_by) REFERENCES members(id)
+                  )';
+        } else {
+          bootstrap_log("Unsupported DB type '{$dbType}' for posts table creation.");
+        }
+
+        if (!empty($sql)) {
+          $db->exec($sql);
+          bootstrap_log("Table 'posts' created successfully for {$dbType}.");
+        }
+      } catch (\PDOException $ce) {
+        $errorMessage = "Failed to create 'posts' table: " . $ce->getMessage();
+        bootstrap_log($errorMessage);
+        error_log($errorMessage, 0);
+        die('Critical error: Could not create necessary database tables. Please check logs.');
+      }
+    } else {
+      $errorMessage = "Database error while checking 'posts' table: " . $e->getMessage();
       bootstrap_log($errorMessage);
       error_log($errorMessage, 0);
     }

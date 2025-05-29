@@ -1,0 +1,17 @@
+.load_msg {
+  cursor: pointer;
+  position: fixed;
+  left: 30px;
+  bottom: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transition: 0.3s;
+  color: #00a6c4;
+  background: black;
+  /*   デフォルトは非表示 */
+  /*  opacity: 0;*/
+}

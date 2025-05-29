@@ -1,0 +1,244 @@
+button#register {
+  width: 100px;
+  position: relative;
+  transition: 0.3s ease-in-out;
+}
+
+button#register.click {
+  background: black;
+  color: #707070;
+}
+
+/* ローディングアニメーション */
+#register span,
+#register span:after {
+  display: none;
+  border-radius: 9999px;
+  width: 25px;
+  height: 25px;
+}
+
+button#register.click span,
+button#register.click span:after {
+  display: inline-block;
+}
+
+#register span {
+  position: relative;
+  text-indent: -9999em;
+  border-top: 3px solid rgba(255, 255, 255, 0.4);
+  border-right: 3px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.4);
+  border-left: 3px solid white;
+  transform: translateZ(0);
+  animation: loadAnime 3s linear;
+  vertical-align: middle;
+  margin-right: 15px;
+}
+
+/**/
+
+button#inquiry {
+  width: 200px;
+  position: relative;
+  transition: 0.3s ease-in-out;
+}
+
+button#inquiry.click {
+  background: black;
+  color: #707070;
+}
+
+/* ローディングアニメーション */
+#inquiry span,
+#inquiry span:after {
+  display: none;
+  border-radius: 9999px;
+  width: 25px;
+  height: 25px;
+}
+
+button#inquiry.click span,
+button#inquiry.click span:after {
+  display: inline-block;
+}
+
+#inquiry span {
+  position: relative;
+  text-indent: -9999em;
+  border-top: 3px solid rgba(255, 255, 255, 0.4);
+  border-right: 3px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.4);
+  border-left: 3px solid white;
+  transform: translateZ(0);
+  animation: loadAnime 3s linear;
+  vertical-align: middle;
+  margin-right: 15px;
+}
+
+button#cregister {
+  width: 100px;
+  position: relative;
+  transition: 0.3s ease-in-out;
+}
+
+button#cregister.click {
+  background: black;
+  color: #707070;
+}
+
+/* ローディングアニメーション */
+#cregister span,
+#cregister span:after {
+  display: none;
+  border-radius: 9999px;
+  width: 25px;
+  height: 25px;
+}
+
+button#cregister.click span,
+button#cregister.click span:after {
+  display: inline-block;
+}
+
+#cregister span {
+  position: relative;
+  text-indent: -9999em;
+  border-top: 3px solid rgba(255, 255, 255, 0.4);
+  border-right: 3px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.4);
+  border-left: 3px solid white;
+  transform: translateZ(0);
+  animation: loadAnime 3s linear;
+  vertical-align: middle;
+  margin-right: 15px;
+}
+
+/**/
+
+button#reset {
+  width: 100px;
+  position: relative;
+  transition: 0.3s ease-in-out;
+}
+
+button#reset.click {
+  background: black;
+  color: #707070;
+}
+
+/* ローディングアニメーション */
+#reset span,
+#reset span:after {
+  display: none;
+  border-radius: 9999px;
+  width: 25px;
+  height: 25px;
+}
+
+button#reset.click span,
+button#reset.click span:after {
+  display: inline-block;
+}
+
+#reset span {
+  position: relative;
+  text-indent: -9999em;
+  border-top: 3px solid rgba(255, 255, 255, 0.4);
+  border-right: 3px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.4);
+  border-left: 3px solid white;
+  transform: translateZ(0);
+  animation: loadAnime 3s linear;
+  vertical-align: middle;
+  margin-right: 15px;
+}
+
+button#sendmail {
+  width: 100px;
+  position: relative;
+  transition: 0.3s ease-in-out;
+}
+
+button#sendmail.click {
+  background: black;
+  color: #707070;
+}
+
+/* ローディングアニメーション */
+#sendmail span,
+#sendmail span:after {
+  display: none;
+  border-radius: 9999px;
+  width: 25px;
+  height: 25px;
+}
+
+button#sendmail.click span,
+button#sendmail.click span:after {
+  display: inline-block;
+}
+
+#sendmail span {
+  position: relative;
+  text-indent: -9999em;
+  border-top: 3px solid rgba(255, 255, 255, 0.4);
+  border-right: 3px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.4);
+  border-left: 3px solid white;
+  transform: translateZ(0);
+  animation: loadAnime 3s linear;
+  vertical-align: middle;
+  margin-right: 15px;
+}
+
+button#onetimepass {
+  width: 100px;
+  position: relative;
+  transition: 0.3s ease-in-out;
+}
+
+button#onetimepass.click {
+  background: black;
+  color: #707070;
+}
+
+/* ローディングアニメーション */
+#onetimepass span,
+#onetimepass span:after {
+  display: none;
+  border-radius: 9999px;
+  width: 25px;
+  height: 25px;
+}
+
+button#onetimepass.click span,
+button#onetimepass.click span:after {
+  display: inline-block;
+}
+
+#onetimepass span {
+  position: relative;
+  text-indent: -9999em;
+  border-top: 3px solid rgba(255, 255, 255, 0.4);
+  border-right: 3px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.4);
+  border-left: 3px solid white;
+  transform: translateZ(0);
+  animation: loadAnime 3s linear;
+  vertical-align: middle;
+  margin-right: 15px;
+}
+
+@keyframes loadAnime {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+}

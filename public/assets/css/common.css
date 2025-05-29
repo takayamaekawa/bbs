@@ -1,0 +1,34 @@
+.sub-title {
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.sub2-title {
+  padding-left: 4%;
+  padding-right: 4%;
+}
+
+span.overmarker {
+  background-color: rgba(33.203, 255, 0, 0.5);
+}
+
+span.overmarker2 {
+  background-color: rgba(136, 255, 0, 0.5);
+}
+
+span.marker {
+  background: linear-gradient(transparent 70%, yellow 70%);
+}
+
+ul,
+ol {
+  background: gray;
+  padding: 0.5em 0.5em 0.5em 2em;
+  border: solid 3px white;
+}
+
+ul li,
+ol li {
+  line-height: 1.5;
+  padding: 0.5em 0;
+}
