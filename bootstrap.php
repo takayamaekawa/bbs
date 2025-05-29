@@ -138,6 +138,9 @@ if ($db instanceof \PDO) { // $db が有効なPDOインスタンスであるこ�
                             name VARCHAR(255),
                             icon VARCHAR(255),
                             email VARCHAR(255) UNIQUE,
+                            email_verified BOOLEAN DEFAULT FALSE,
+                            email_verification_token VARCHAR(255),
+                            email_verification_expires TIMESTAMP,
                             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                             updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                         )';
@@ -187,7 +190,7 @@ if ($db instanceof \PDO) { // $db が有効なPDOインスタンスであるこ�
       bootstrap_log("Table 'posts' not found. Attempting to create it...");
       try {
         $dbType = strtolower($settings->get('database.type', 'mysql'));
-        
+
         if ($dbType === 'sqlite') {
           $sql = 'CREATE TABLE posts (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,

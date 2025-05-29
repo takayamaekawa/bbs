@@ -18,7 +18,7 @@ class HeaderHelper
   {
     $isLoggedIn = Auth::check();
     $currentUser = $isLoggedIn ? Auth::user() : null;
-    
+
     // config.jsonからサイト名とパスを取得
     $settings = Settings::getInstance();
     if ($siteName === null) {
@@ -85,11 +85,11 @@ class HeaderHelper
         </script>
       </div>
       <style>
-        .flex nyanya img {
+        .flex .icon-wrapper img {
           margin-top: 5px;
         }
 
-        .flex nyanyanya img {
+        .flex .text-wrapper img {
           margin-top: 10px;
         }
       </style>
@@ -97,12 +97,12 @@ class HeaderHelper
         <span>
           <a class="" href="/counter/index.php">
             <div class="flex">
-              <nyanya>
+              <div class="icon-wrapper">
                 <img src="/assets/img/icon/link3.png" width="20px" height="25px">
-              </nyanya>
-              <nyanyanya style="padding-top:-3px;!important;">
-                絶・掲示板へようこそ
-              </nyanyanya>
+              </div>
+              <div class="text-wrapper" style="padding-top:-3px!important;">
+                <?= htmlspecialchars($siteName, ENT_QUOTES) ?>へようこそ
+              </div>
             </div>
           </a>
         </span>

@@ -24,5 +24,16 @@
     "upload_directory": "public/assets/img/upload/",
     "user_icons_directory": "public/assets/img/upload/icon/user/",
     "temp_directory": "tmp/"
+  },
+  "mail": {
+    "host": "smtp.gmail.com",
+    "port": 587,
+    "username": "your_email@gmail.com",
+    "password": "your_app_password",
+    "from_email": "your_email@gmail.com",
+    "from_name": "絶・掲示板",
+    "reply_to_email": "your_email@gmail.com",
+    "reply_to_name": "絶・掲示板サポート",
+    "encryption": "tls"
   }
 }

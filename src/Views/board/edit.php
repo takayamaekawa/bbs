@@ -1,3 +1,4 @@
+<?php use Root\Composer\Core\Config\Settings; $settings = Settings::getInstance(); $siteName = $settings->get('app_settings.site_name', '絶・掲示板'); ?>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -9,7 +10,7 @@
   <link rel="stylesheet" href="/assets/css/main_pc.css" media="screen and (min-width:960px)">
   <link rel="stylesheet" href="/assets/css/ogp.css">
   <link rel="stylesheet" href="/assets/css/board.php">
-  <title>投稿編集 - 絶・掲示板</title>
+  <title>投稿編集 - <?= htmlspecialchars($siteName, ENT_QUOTES) ?></title>
 </head>
 
 <body>

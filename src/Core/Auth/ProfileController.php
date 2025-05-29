@@ -4,6 +4,7 @@ namespace Root\Composer\Core\Auth;
 
 use Root\Composer\Core\Database\Connection;
 use Root\Composer\Core\Board\FileUploadHandler;
+use Root\Composer\Core\Config\Settings;
 
 class ProfileController
 {
@@ -60,9 +61,14 @@ class ProfileController
       return;
     }
 
-    // ログイン成功
-    $_SESSION['id'] = $user['id'];
-    $_SESSION['time'] = time();
+    // メール認証チェック
+    if (!$user['email_verified']) {
+      $this->showLoginForm(['login' => 'not_verified']);
+      return;
+    }
+
+    // ログイン成功 - Auth システムを使用してログイン処理
+    Auth::attemptLogin($user['id']);
 
     // リダイレクト先の決定
     $redirectUrl = $this->getRedirectUrl();
@@ -123,9 +129,23 @@ class ProfileController
     ];
 
     if ($this->userModel->create($userData)) {
-      $_SESSION['join'] = $_POST;
-      header('Location: /profile/confirm.php');
-      exit();
+      $userId = $this->userModel->getLastInsertId();
+
+      // メール認証機能を実装
+      $db = Connection::getConnection();
+      $settings = Settings::getInstance();
+      $verificationService = new EmailVerificationService($db, $settings);
+
+      if ($verificationService->sendVerificationEmail($userId, $userData['email'])) {
+        $_SESSION['join'] = $_POST;
+        $_SESSION['verification_email_sent'] = true;
+        header('Location: /profile/confirm.php');
+        exit();
+      } else {
+        // メール送信失敗時はユーザーを削除
+        $this->userModel->deleteById($userId);
+        $this->showRegisterForm(['general' => 'メール送信に失敗しました。しばらく後にもう一度お試しください。']);
+      }
     } else {
       $this->showRegisterForm(['general' => 'ユーザー登録に失敗しました。']);
     }

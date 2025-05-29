@@ -1,10 +1,11 @@
+<?php use Root\Composer\Core\Config\Settings; $settings = Settings::getInstance(); $siteName = $settings->get('app_settings.site_name', '絶・掲示板'); ?>
 <!DOCTYPE html>
 <html lang="ja">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>ログイン - 絶・掲示板</title>
+  <title>ログイン - <?= htmlspecialchars($siteName, ENT_QUOTES) ?></title>
   <link rel="stylesheet" href="/assets/css/main_sp.css" media="screen and (max-width:520px)">
   <link rel="stylesheet" href="/assets/css/main_style.css" media="screen and (min-width:520px) and (max-width:960px)">
   <link rel="stylesheet" href="/assets/css/main_pc.css" media="screen and (min-width:960px)">
@@ -45,6 +46,9 @@
           <?php endif; ?>
           <?php if (isset($errors['login']) && $errors['login'] == 'failed'): ?>
             <p class="error">メールアドレスかパスワードが間違っています</p>
+          <?php endif; ?>
+          <?php if (isset($errors['login']) && $errors['login'] == 'not_verified'): ?>
+            <p class="error">メールアドレスの認証が完了していません。<br>送信されたメールから認証を完了してください。</p>
           <?php endif; ?>
         </label>
         <br>

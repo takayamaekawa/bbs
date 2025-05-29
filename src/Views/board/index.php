@@ -1,3 +1,4 @@
+<?php use Root\Composer\Core\Config\Settings; $settings = Settings::getInstance(); $siteName = $settings->get('app_settings.site_name', '絶・掲示板'); ?>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -13,7 +14,7 @@
   <link rel="stylesheet" href="/assets/css/pagenation.css">
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css&skin=sons-of-obsidian"></script>
   <script src='/assets/js/input_retention.js'></script>
-  <title>絶・掲示板</title>
+  <title><?= htmlspecialchars($siteName, ENT_QUOTES) ?></title>
 </head>
 
 <body>
@@ -29,7 +30,7 @@
 
   <div class="j-flex">
     <div>
-      <h3 class="white" id="title">&nbsp;&nbsp;絶・掲示板</h3>
+      <h3 class="white" id="title">&nbsp;&nbsp;<?= htmlspecialchars($siteName, ENT_QUOTES) ?></h3>
     </div>
     <div class="f-flex">
       <div>

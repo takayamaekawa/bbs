@@ -1,10 +1,11 @@
+<?php use Root\Composer\Core\Config\Settings; $settings = Settings::getInstance(); $siteName = $settings->get('app_settings.site_name', '絶・掲示板'); ?>
 <!DOCTYPE html>
 <html lang="ja">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>プロフィール - 絶・掲示板</title>
+  <title>プロフィール - <?= htmlspecialchars($siteName, ENT_QUOTES) ?></title>
   <link rel="stylesheet" href="/assets/css/main_sp.css" media="screen and (max-width:520px)">
   <link rel="stylesheet" href="/assets/css/main_style.css" media="screen and (min-width:520px) and (max-width:960px)">
   <link rel="stylesheet" href="/assets/css/main_pc.css" media="screen and (min-width:960px)">

@@ -93,5 +93,12 @@ class User
   {
     return (int) $this->db->lastInsertId();
   }
-}
 
+  public function deleteById(int $id): bool
+  {
+    $sql = 'DELETE FROM members WHERE id = :id';
+    $stmt = $this->db->prepare($sql);
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+    return $stmt->execute();
+  }
+}
